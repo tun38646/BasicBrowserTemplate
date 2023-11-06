@@ -6,6 +6,10 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.EditText
 import android.widget.ImageButton
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.net.URL
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +30,10 @@ class MainActivity : AppCompatActivity() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
             }
+        }
+
+        goButton.setOnClickListener {
+            webView.loadUrl(urlEditText.text.toString())
         }
 
     }
